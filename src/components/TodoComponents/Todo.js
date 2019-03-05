@@ -8,3 +8,5 @@ const Todo = ({ task, completed, id }) => {
     </div>
   );
 };
+
+export default Todo;
