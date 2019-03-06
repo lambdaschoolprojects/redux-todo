@@ -4,8 +4,7 @@ class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      task: "",
-      id: ""
+      task: ""
     };
   }
   onChange = event => {
@@ -13,6 +12,7 @@ class TodoForm extends Component {
     this.setState({ [name]: event.target.value });
   };
   onSubmit = event => {
+    console.log(event);
     const { task, id } = this.state;
     const { onFormSubmit } = this.props;
     event.preventDefault();
@@ -28,14 +28,14 @@ class TodoForm extends Component {
           placeholder="Enter task"
           value={this.state.task}
         />
-        <input
-          onChange={this.onChange}
-          type="text"
-          name="id"
-          placeholder="Enter ID"
-          value={this.state.id}
-        />
         <button type="submit">Add Task</button>
+        <button
+          onClick={() => this.props.onClearClicked()}
+          type="button"
+          id="clear"
+        >
+          Clear Completed
+        </button>
       </form>
     );
   }

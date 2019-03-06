@@ -11,6 +11,7 @@ class TodoList extends Component {
         id={todo.id}
         key={todo.id}
         task={todo.task}
+        onTaskClicked={this.props.onTaskClicked}
         completed={todo.completed}
       />
     ));
@@ -19,9 +20,11 @@ class TodoList extends Component {
   };
 
   render() {
-    console.log(this.props.todoList);
+    //console.log(this.props.todoList);
     return (
-      <div className={"todoList"}>{this.getTodos(this.props.todoList)}</div>
+      <div onTaskCLicked={this.props.onTaskClicked} className={"todoList"}>
+        {this.getTodos(this.props.todoList)}
+      </div>
     );
   }
 }
