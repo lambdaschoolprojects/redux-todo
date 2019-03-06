@@ -19,6 +19,7 @@ class TodoList extends Component {
   };
 
   render() {
+    console.log(this.props.todoList);
     return (
       <div className={"todoList"}>{this.getTodos(this.props.todoList)}</div>
     );

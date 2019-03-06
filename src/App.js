@@ -10,11 +10,18 @@ class App extends Component {
       todoList: []
     };
   }
+  onFormSubmit = (newTask, newId) => {
+    const newState = [
+      ...this.state.todoList,
+      { task: newTask, id: newId, completed: false }
+    ];
+    this.setState({ todoList: newState });
+  };
   render() {
     return (
       <div>
         <TodoList todoList={this.state.todoList} />
-        <TodoForm />
+        <TodoForm onFormSubmit={this.onFormSubmit} />
       </div>
     );
   }
