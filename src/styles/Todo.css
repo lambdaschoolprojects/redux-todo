@@ -32,6 +32,11 @@ html {
   background-color: #c5c9a4;
   border: 1px solid black;
   flex-basis: 2;
+  cursor: pointer;
+}
+
+.todoForm button:hover {
+  filter: brightness(1.25);
 }
 
 .todoItem {
@@ -42,6 +47,7 @@ html {
   /* padding-left: 10px; */
   margin-bottom: 5px;
   width: 100%;
+  cursor: pointer;
 }
 
 .todoItem p {

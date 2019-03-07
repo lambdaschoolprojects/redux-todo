@@ -9,7 +9,11 @@ const Todo = ({ placeholderTask, task, completed, id, onTaskClicked }) => {
       onClick={() => onTaskClicked(id)}
       className={`todoItem ${completedClass}`}
       id={id}
-      style={placeholderTask == "true" ? { backgroundColor: "#FCECC9" } : null}
+      style={
+        placeholderTask == "true"
+          ? { backgroundColor: "#FCECC9", cursor: "not-allowed" }
+          : null
+      }
     >
       <p>{task}</p>
     </div>
