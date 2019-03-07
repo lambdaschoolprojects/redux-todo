@@ -6,21 +6,30 @@
 
 .todoForm {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: row;
   flex-basis: 1;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 .todoForm input,
 .todoForm button {
   height: 50px;
   padding-left: 5px;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   border: 1px solid black;
+}
+
+.todoForm input {
+  width: 50%;
+  height: 47px;
 }
 
 .todoForm button {
   background-color: #c5c9a4;
   border: 1px solid black;
+  width: 25%;
 }
 
 .todoItem {

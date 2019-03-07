@@ -49,13 +49,14 @@ class App extends Component {
     return (
       <div className="container">
         <div className="todoApp">
-          <TodoList
-            onTaskClicked={this.onTaskClicked}
-            todoList={this.state.todoList}
-          />
+          <h1>Todo List</h1>
           <TodoForm
             onFormSubmit={this.onFormSubmit}
             onClearClicked={this.onClearClicked}
+          />
+          <TodoList
+            onTaskClicked={this.onTaskClicked}
+            todoList={this.state.todoList}
           />
         </div>
       </div>
