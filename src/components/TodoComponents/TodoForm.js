@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "../../styles/Todo.css";
+
 class TodoForm extends Component {
   constructor(props) {
     super(props);
@@ -12,15 +14,15 @@ class TodoForm extends Component {
     this.setState({ [name]: event.target.value });
   };
   onSubmit = event => {
-    console.log(event);
     const { task, id } = this.state;
     const { onFormSubmit } = this.props;
     event.preventDefault();
     onFormSubmit(task, id);
+    this.setState({ task: "" });
   };
   render() {
     return (
-      <form id="todoForm" onSubmit={this.onSubmit}>
+      <form className="todoForm" onSubmit={this.onSubmit}>
         <input
           onChange={this.onChange}
           type="text"

@@ -1,0 +1,15 @@
+.todoApp {
+  display: flex;
+  /* justify-content: space-between; */
+  margin: 15px auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+.container {
+  width: 100%;
+}
+
+body {
+  background-color: #476a6f;
+}

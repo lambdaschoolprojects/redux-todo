@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 
 import Todo from "./Todo";
+import "../../styles/Todo.css";
 
 class TodoList extends Component {
   getTodos = todoList => {

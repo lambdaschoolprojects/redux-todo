@@ -1,14 +1,16 @@
 import React from "react";
 
+import "../../styles/Todo.css";
+
 const Todo = ({ task, completed, id, onTaskClicked }) => {
+  let completedClass = completed ? "completed" : null;
   return (
-    <div id={id}>
-      <p
-        style={completed ? { textDecoration: "line-through" } : null}
-        onClick={() => onTaskClicked(id)}
-      >
-        {task}
-      </p>
+    <div
+      onClick={() => onTaskClicked(id)}
+      className={`todoItem ${completedClass}`}
+      id={id}
+    >
+      <p>{task}</p>
     </div>
   );
 };
