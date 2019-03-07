@@ -7,11 +7,11 @@ import "../../styles/Todo.css";
 
 class TodoList extends Component {
   getTodos = todoList => {
-    console.log(todoList);
     let todos;
     const placeholderTodoList = [
       { task: "No tasks yet", completed: false, id: "0001" }
     ];
+
     if (todoList.length == 0)
       todos = (
         <Todo
@@ -19,6 +19,7 @@ class TodoList extends Component {
           task={placeholderTodoList[0].task}
           completed={placeholderTodoList[0].completed}
           onTaskClicked={() => {}}
+          placeholderTask="true"
         />
       );
     else
@@ -29,6 +30,7 @@ class TodoList extends Component {
           task={todo.task}
           onTaskClicked={this.props.onTaskClicked}
           completed={todo.completed}
+          placeholderTask="false"
         />
       ));
 
