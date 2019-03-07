@@ -7,15 +7,30 @@ import "../../styles/Todo.css";
 
 class TodoList extends Component {
   getTodos = todoList => {
-    const todos = todoList.map(todo => (
-      <Todo
-        id={todo.id}
-        key={todo.id}
-        task={todo.task}
-        onTaskClicked={this.props.onTaskClicked}
-        completed={todo.completed}
-      />
-    ));
+    console.log(todoList);
+    let todos;
+    const placeholderTodoList = [
+      { task: "No tasks yet", completed: false, id: "0001" }
+    ];
+    if (todoList.length == 0)
+      todos = (
+        <Todo
+          id={placeholderTodoList[0].id}
+          task={placeholderTodoList[0].task}
+          completed={placeholderTodoList[0].completed}
+          onTaskClicked={() => {}}
+        />
+      );
+    else
+      todos = todoList.map(todo => (
+        <Todo
+          id={todo.id}
+          key={todo.id}
+          task={todo.task}
+          onTaskClicked={this.props.onTaskClicked}
+          completed={todo.completed}
+        />
+      ));
 
     return todos;
   };
