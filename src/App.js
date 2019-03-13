@@ -1,13 +1,64 @@
-import React from 'react';
+import React, { Component } from "react";
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+import "./styles/App.css";
+//import "./styles/reset.css";
+
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.newId = 1;
+    this.state = {
+      todoList: []
+    };
+  }
+  onFormSubmit = newTask => {
+    if (newTask == "") return;
+    this.setState(prevState => {
+      return {
+        todoList: [
+          ...prevState.todoList,
+          { task: newTask, id: this.newId, completed: false }
+        ]
+      };
+    });
+    this.newId++;
+  };
+  onTaskClicked = taskId => {
+    let taskIndex;
+    let newState = this.state.todoList;
+
+    for (let i = 0; i < newState.length; i++) {
+      if (newState[i].id === taskId) taskIndex = i;
+    }
+
+    newState[taskIndex]["completed"] = true;
+
+    this.setState({ todoList: newState });
+  };
+  onClearClicked = _ => {
+    this.setState(prevState => {
+      return {
+        todoList: prevState.todoList.filter(item => !item.completed)
+      };
+    });
+  };
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="container">
+        <div className="todoApp">
+          <h1>Todo List</h1>
+          <TodoForm
+            onFormSubmit={this.onFormSubmit}
+            onClearClicked={this.onClearClicked}
+          />
+          <TodoList
+            onTaskClicked={this.onTaskClicked}
+            todoList={this.state.todoList}
+          />
+        </div>
       </div>
     );
   }
